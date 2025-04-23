@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Candidate Screening Template Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.5;
+    }
+    h2 {
+      margin-bottom: 10px;
+    }
+    select, button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      margin-top: 8px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #0063CI;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <h2>🎯 Candidate Screening Template Generator</h2>
+  <p>Select a candidate type below, then click “Select Template.”</p>
+
+  <label for="templateSelect"><strong>Candidate Type:</strong></label>
+  <select id="templateSelect">
+    <option value="">— Please choose —</option>
+    <option value="internal">Internal Candidate</option>
+    <option value="technical">Technical Candidate</option>
+    <option value="professional">Professional Candidate</option>
+  </select>
+
+  <button id="downloadBtn">Select Template</button>
+
+  <script>
+    document.getElementById('downloadBtn').addEventListener('click', function () {
+      const choice = document.getElementById('templateSelect').value;
+      if (!choice) {
+        alert('Please select a candidate type.');
+        return;
+      }
+
+      const files = {
+        internal: 'https://www.canva.com/design/DAGlaVQQNcU/346xtp02GiM9IEU-f4T8Ew/view',
+        technical: 'https://www.canva.com/design/DAGla2pd7YU/t5h57zReR8m_d6D0feGIqw/view?embed',
+        professional: 'https://www.canva.com/design/DAGlawHDfWA/YOpDknPu7uWXH20ItI0m6Q/view?embed'
+      };
+
+      const url = files[choice];
+      const link = document.createElement('a');
+      link.href = url;
+      link.target = '_blank';
+      link.click();
+    });
+  </script>
+</body>
+</html>
