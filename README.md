@@ -1,1 +1,0 @@
-# candidate-template-generator
